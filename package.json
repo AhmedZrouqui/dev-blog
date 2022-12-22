@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "contentful": "^9.2.14",
     "date-fns": "^2.28.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
