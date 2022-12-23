@@ -21,4 +21,13 @@ export async function getPostsCount() {
   `;
 }
 
-export async function getBySlug(slug: string) {}
+export async function getBySlug(slug: string) {
+  const post = contentful
+    .getEntries({
+      content_type: "blog",
+      "fields.slug[in]": slug,
+    })
+    .then((response) => response.items);
+
+  return post;
+}

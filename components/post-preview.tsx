@@ -1,17 +1,17 @@
-import Avatar from './avatar'
-import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
-import Link from 'next/link'
-import type Author from '../interfaces/author'
+import Avatar from "./avatar";
+import DateFormatter from "./date-formatter";
+import CoverImage from "./cover-image";
+import Link from "next/link";
+import type Author from "../interfaces/author";
 
 type Props = {
-  title: string
-  coverImage: string
-  date: string
-  excerpt: string
-  author: Author
-  slug: string
-}
+  title: string;
+  coverImage: string;
+  date: string;
+  excerpt: string;
+  author: Author;
+  slug: string;
+};
 
 const PostPreview = ({
   title,
@@ -39,9 +39,16 @@ const PostPreview = ({
         <DateFormatter dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
+      <Avatar
+        name={author?.fields?.fullName ?? "Anonymous"}
+        picture={
+          (author?.fields?.image?.length > 0 &&
+            author.fields.image[0].fields.url) ||
+          "assets/images/default_profile_picture.png"
+        }
+      />
     </div>
-  )
-}
+  );
+};
 
-export default PostPreview
+export default PostPreview;

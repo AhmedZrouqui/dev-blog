@@ -1,6 +1,15 @@
 type Author = {
-  name: string
-  picture: string
-}
+  fields: {
+    fullName: string;
+    slug: string;
+    image: {
+      fields: {
+        url: string;
+        title: string;
+        description: string;
+      };
+    }[];
+  };
+};
 
-export default Author
+export default Author;

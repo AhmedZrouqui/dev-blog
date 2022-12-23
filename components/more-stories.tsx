@@ -19,13 +19,17 @@ const MoreStories = ({ posts }: Props) => {
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
         {posts.map((post) => (
           <PostPreview
-            key={post.slug}
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-            slug={post.slug}
-            excerpt={post.excerpt}
+            key={post.fields.slug}
+            title={post.fields.title}
+            coverImage={
+              post.fields.coverImage
+                ? "https://" + post.fields.coverImage?.fields.file.url
+                : "/assets/images/blog_cover_placeholder.png"
+            }
+            date={post.sys.createdAt}
+            author={post.fields.author}
+            slug={post.fields.slug}
+            excerpt={post.fields.excerpt}
           />
         ))}
       </div>
