@@ -1,12 +1,16 @@
 import cn from "classnames";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { ImageLoaderProps, ImageLoader } from "next/image";
 
 type Props = {
   title: string;
   src: string;
   slug?: string;
 };
+
+const contentfulImageLoader: ImageLoader = ({ src, width }: ImageLoaderProps) => {
+  return `${src}?w=${width}`
+}
 
 const CoverImage = ({ title, src, slug }: Props) => {
   const image = (
@@ -18,6 +22,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
       })}
       width={1300}
       height={270}
+      loader={contentfulImageLoader}
     />
   );
   return (
