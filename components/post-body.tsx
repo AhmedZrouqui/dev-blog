@@ -1,35 +1,51 @@
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { Block, BLOCKS, Inline, MARKS } from "@contentful/rich-text-types";
 import markdownStyles from "./markdown-styles.module.css";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Image, { ImageLoader, ImageLoaderProps } from "next/image"
 
 type Props = {
   content: any;
 };
 
+const contentfulImageLoader: ImageLoader = ({ src, width }: ImageLoaderProps) => {
+  return `${src}?w=${width}`
+}
+
 const PostBody = ({ content }: Props) => {
   const options = {
     renderNode: {
-      [BLOCKS.HEADING_1]: (node: any, children: any) => (
+      [BLOCKS.HEADING_1]: (node: Block | Inline, children: any) => (
         <h1 className="my-4 font-bold text-5xl">{children}</h1>
       ),
-      [BLOCKS.HEADING_2]: (node: any, children: any) => (
+      [BLOCKS.HEADING_2]: (node: Block | Inline, children: any) => (
         <h2 className="my-4 font-bold text-3xl">{children}</h2>
       ),
-      [BLOCKS.HEADING_3]: (node: any, children: any) => (
+      [BLOCKS.HEADING_3]: (node: Block | Inline, children: any) => (
         <h3 className="my-4 font-bold text-2xl">{children}</h3>
       ),
-      [BLOCKS.HEADING_4]: (node: any, children: any) => (
+      [BLOCKS.HEADING_4]: (node: Block | Inline, children: any) => (
         <h4 className="my-4 font-bold text-xl">{children}</h4>
       ),
-      [BLOCKS.HEADING_5]: (node: any, children: any) => (
+      [BLOCKS.HEADING_5]: (node: Block | Inline, children: any) => (
         <h5 className="my-4 font-normal text-xl">{children}</h5>
       ),
-      [BLOCKS.HEADING_5]: (node: any, children: any) => (
+      [BLOCKS.HEADING_5]: (node: Block | Inline, children: any) => (
         <h6 className="my-4 font-normal text-xl">{children}</h6>
       ),
-      [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
+      [BLOCKS.PARAGRAPH]: (node: Block | Inline, children: any) => (
         <p className="mb-3">{children}</p>
       ),
+      [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
+        return (
+          <Image
+            loader={contentfulImageLoader}
+            src={node.data.target.fields.file.url}
+            height={node.data.target.fields.file.details.image.height}
+            width={node.data.target.fields.file.details.image.width}
+            alt={node.data.target.fields.description}
+          />
+        )
+      },
     },
     renderMark: {
       [MARKS.BOLD]: (text: any) => <b>{text}</b>,
