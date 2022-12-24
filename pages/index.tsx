@@ -18,6 +18,10 @@ export default function Index({ posts }: Props) {
       <Layout>
         <Head>
           <title>Ahmed Zrouqui | Dev Blog</title>
+          <meta name="keywords" content="HTML, CSS, JavaScript, React, Web Developer, Blog, Ahmed Zrouqui, Dev Blog, Front-end, Back-end" />
+          <meta name="description" content="Ahmed Zrouqui Dev blog, I will be sharing my daily coding challenges and knowledge in this blog." />
+          <meta property="og:description" content="Ahmed Zrouqui Dev blog, I will be sharing my daily coding challenges and knowledge in this blog." />
+          <meta name="author" content="Ahmed Zrouqui" />
         </Head>
         <Container>
           <Intro />

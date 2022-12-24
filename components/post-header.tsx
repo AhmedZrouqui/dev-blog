@@ -17,8 +17,12 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
       <PostTitle>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
         <Avatar
-          name={author ? author?.fields.name : "Anonymous"}
-          picture={author?.fields.image}
+          name={author ? author?.fields.fullName : "Anonymous"}
+          picture={
+            (author?.fields?.image?.length > 0 &&
+              author.fields.image[0].fields.url) ||
+            "assets/images/default_profile_picture.png"
+          }
         />
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
@@ -27,8 +31,12 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">
           <Avatar
-            name={author ? author?.fields.name : "Anonymous"}
-            picture={author?.picture}
+            name={author ? author?.fields.fullName : "Anonymous"}
+            picture={
+              (author?.fields?.image?.length > 0 &&
+                author.fields.image[0].fields.url) ||
+              "assets/images/default_profile_picture.png"
+            }
           />
         </div>
         <div className="mb-6 text-lg">

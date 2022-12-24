@@ -39,7 +39,10 @@ export default function Post({ post, morePosts, preview }: Props) {
                     property="og:image"
                     content={post.fields.ogImage[0].fields.url}
                   />
-                )}
+                  )}
+                  <meta name="description" content={post.fields.excerpt} />
+                  <meta property="og:description" content={post.fields.excerpt} />
+                  <meta name="author" content={post.fields.author.fields.fullName} />
               </Head>
               <PostHeader
                 title={post.fields.title}
@@ -68,7 +71,6 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = await getBySlug(params.slug);
-  console.log("here ", post);
 
   return {
     props: {

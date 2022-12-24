@@ -1,6 +1,8 @@
 import PostPreview from "./post-preview";
 import type Post from "../interfaces/post";
 import Link from "next/link";
+import {debounce} from "lodash"
+import { SyntheticEvent } from "react";
 
 type Props = {
   posts: Post[];
@@ -8,10 +10,10 @@ type Props = {
   searchQueryUpdate?: (v: string) => void;
 };
 
-const MoreStories = ({ posts, isBlogsPage }: Props) => {
+const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate}: Props) => {
 
-  const handleSearchChange = debounce(() => {
-    
+  const handleSearchChange = debounce(function (e: SyntheticEvent) {
+    searchQueryUpdate((e.target as HTMLInputElement).value as string)
   }, 500)
 
   return (
@@ -25,7 +27,9 @@ const MoreStories = ({ posts, isBlogsPage }: Props) => {
         {
           isBlogsPage ? <></> : <Link href="/posts">View all posts</Link>
         }
-        <input type={'text'} placeholder="Search..." onChange={handleSearchChange} className="outline-none border-b-[1px] border-[#1d1d1d]" />
+        {
+          isBlogsPage ? <input type={'text'} placeholder="Search..." onChange={handleSearchChange} className="outline-none border-b-[1px] border-[#1d1d1d]" /> : <></>
+        }
         <></>
         
       </div>
@@ -52,7 +56,4 @@ const MoreStories = ({ posts, isBlogsPage }: Props) => {
 };
 
 export default MoreStories;
-function debounce(arg0: () => void, arg1: number) {
-  throw new Error("Function not implemented.");
-}
 
