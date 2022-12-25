@@ -37,18 +37,14 @@ export default function Index({ posts }: Props) {
             />
           )*/}
           <ins className="adsbygoogle"
-            style={{display: "block"}}
+            style={{ display: "block" }}
             data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
             data-ad-slot="7003765774"
             data-ad-format="auto"
             data-full-width-responsive="true"></ins>
-          <Script>
-            {
-              `
-              (adsbygoogle = window.adsbygoogle || []).push({});
-              `
-            }
-          </Script>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({ });
+          </script>
           {posts.length > 0 && <MoreStories posts={posts} />}
         </Container>
       </Layout>
