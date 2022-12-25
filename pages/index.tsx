@@ -42,18 +42,16 @@ export default function Index({ posts }: Props) {
             data-ad-slot="7003765774"
             data-ad-format="auto"
             data-full-width-responsive="true"></ins>
-          <Script
-            id="adsbygoogle-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-                __html: `
-                (adsbygoogle = window.adsbygoogle || []).push({
+          <Script>
+            {
+              `
+              (adsbygoogle = window.adsbygoogle || []).push({
                   google_ad_client: ${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE},
                   enable_page_level_ads: true
-                  });
-                `,
-              }}
-            />
+                });
+              `
+            }
+          </Script>
           {posts.length > 0 && <MoreStories posts={posts} />}
         </Container>
       </Layout>
