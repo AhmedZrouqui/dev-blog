@@ -8,7 +8,7 @@ type Author = {
         title: string;
         description: string;
       };
-    }[];
+    };
   };
 };
 

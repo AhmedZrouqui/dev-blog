@@ -45,7 +45,7 @@ const HeroPost = ({
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
           <Avatar
             name={author.fields.fullName}
-            picture={author.fields.fullName}
+            picture={author.fields.image.fields.url}
           />
         </div>
       </div>

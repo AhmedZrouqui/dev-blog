@@ -19,7 +19,7 @@ type PostType = {
         url: string;
         description: string;
       };
-    }[];
+    };
     content: string;
   };
   sys: {

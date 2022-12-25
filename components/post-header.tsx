@@ -20,7 +20,7 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
           name={author ? author?.fields.fullName : "Anonymous"}
           picture={
             (author?.fields?.image?.length > 0 &&
-              author.fields.image[0].fields.url) ||
+              author.fields.image?.fields.url) ||
             "assets/images/default_profile_picture.png"
           }
         />
@@ -34,7 +34,7 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
             name={author ? author?.fields.fullName : "Anonymous"}
             picture={
               (author?.fields?.image?.length > 0 &&
-                author.fields.image[0].fields.url) ||
+                author.fields.image?.fields.url) ||
               "assets/images/default_profile_picture.png"
             }
           />

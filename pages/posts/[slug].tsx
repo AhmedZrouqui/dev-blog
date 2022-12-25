@@ -38,25 +38,28 @@ export default function Post({ post, morePosts, preview }: Props) {
                 {post.fields.ogImage && (
                   <meta
                     property="og:image"
-                    content={post.fields.ogImage[0].fields.url}
+                    content={post.fields.ogImage?.fields.url}
                   />
                 )}
-                <meta name="description" content={post.fields.excerpt} />
-                <meta property="og:description" content={post.fields.excerpt} />
+                <meta name="description" content={post.fields?.excerpt} />
+                <meta
+                  property="og:description"
+                  content={post.fields?.excerpt}
+                />
                 <meta
                   name="author"
-                  content={post.fields.author.fields.fullName}
+                  content={post.fields.author.fields?.fullName}
                 />
               </Head>
               <PostHeader
-                title={post.fields.title}
+                title={post.fields?.title}
                 coverImage={
                   post.fields.coverImage
                     ? "https://" + post.fields.coverImage?.fields.file.url
                     : "/assets/images/blog_cover_placeholder.png"
                 }
                 date={post.sys.createdAt}
-                author={post.fields.author}
+                author={post.fields?.author}
               />
               <ins
                 className="adsbygoogle"
@@ -72,7 +75,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                     `}
               </Script>
 
-              <PostBody content={post.fields.content} />
+              <PostBody content={post?.fields?.content} />
             </article>
           </>
         )}
