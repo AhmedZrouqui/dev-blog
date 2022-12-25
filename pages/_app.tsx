@@ -8,7 +8,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   <>
   <Script
     strategy='lazyOnload'
-    src={`https://www.googletagmanager.com/gtag/js?id=G-8PP4Q3WK4J`}
+    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
   />
   <Script
   strategy='lazyOnload'
@@ -19,7 +19,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           function gtag(){dataLayer.push(arguments)}
           gtag('js', new Date());
         
-          gtag('config', 'G-8PP4Q3WK4J');
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
           ` 
     }
   </Script>
@@ -27,3 +27,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   </>)
   
 }
+
+
+
