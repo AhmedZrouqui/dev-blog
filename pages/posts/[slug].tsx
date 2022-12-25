@@ -40,10 +40,13 @@ export default function Post({ post, morePosts, preview }: Props) {
                     property="og:image"
                     content={post.fields.ogImage[0].fields.url}
                   />
-                  )}
-                  <meta name="description" content={post.fields.excerpt} />
-                  <meta property="og:description" content={post.fields.excerpt} />
-                  <meta name="author" content={post.fields.author.fields.fullName} />
+                )}
+                <meta name="description" content={post.fields.excerpt} />
+                <meta property="og:description" content={post.fields.excerpt} />
+                <meta
+                  name="author"
+                  content={post.fields.author.fields.fullName}
+                />
               </Head>
               <PostHeader
                 title={post.fields.title}
@@ -54,21 +57,21 @@ export default function Post({ post, morePosts, preview }: Props) {
                 }
                 date={post.sys.createdAt}
                 author={post.fields.author}
-                />
-                <ins className="adsbygoogle"
-                    style={{display: "block", textAlign: "center"}}
-                    data-ad-layout="in-article"
-                    data-ad-format="fluid"
-                    data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
-                    data-ad-slot="4018757202"></ins>
-                <Script>
-                  {
-                    `
+              />
+              <ins
+                className="adsbygoogle"
+                style={{ display: "block", textAlign: "center" }}
+                data-ad-layout="in-article"
+                data-ad-format="fluid"
+                data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
+                data-ad-slot="4018757202"
+              ></ins>
+              <Script>
+                {`
                     (adsbygoogle = window.adsbygoogle || []).push({});
-                    `
-                  }
-                </Script>
-                
+                    `}
+              </Script>
+
               <PostBody content={post.fields.content} />
             </article>
           </>
@@ -91,7 +94,6 @@ export async function getStaticProps({ params }: Params) {
     props: {
       post: post[0],
     },
-    revalidate: 60,
   };
 }
 

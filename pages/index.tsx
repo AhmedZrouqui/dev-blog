@@ -14,6 +14,7 @@ type Props = {
 };
 
 export default function Index({ posts }: Props) {
+  console.log(posts);
   return (
     <>
       <Layout>
@@ -57,5 +58,6 @@ export const getStaticProps = async () => {
 
   return {
     props: { posts },
+    revalidate: 10,
   };
 };
