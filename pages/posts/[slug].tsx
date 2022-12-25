@@ -11,6 +11,7 @@ import { CMS_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import { getBySlug, _getAllPosts } from "../../lib/getPosts";
+import Script from "next/script";
 
 type Props = {
   post: PostType;
@@ -53,7 +54,21 @@ export default function Post({ post, morePosts, preview }: Props) {
                 }
                 date={post.sys.createdAt}
                 author={post.fields.author}
-              />
+                />
+                <ins className="adsbygoogle"
+                    style={{display: "block", textAlign: "center"}}
+                    data-ad-layout="in-article"
+                    data-ad-format="fluid"
+                    data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
+                    data-ad-slot="4018757202"></ins>
+                <Script>
+                  {
+                    `
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    `
+                  }
+                </Script>
+                
               <PostBody content={post.fields.content} />
             </article>
           </>

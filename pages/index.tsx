@@ -7,6 +7,7 @@ import { _getAllPosts } from "../lib/getPosts";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import Post from "../interfaces/post";
+import Script from "next/script";
 
 type Props = {
   posts: Post[];
@@ -35,6 +36,19 @@ export default function Index({ posts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )*/}
+          <ins className="adsbygoogle"
+            style={{display: "block"}}
+            data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
+            data-ad-slot="7003765774"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+          <Script>
+            {
+              `
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              `
+            }
+          </Script>
           {posts.length > 0 && <MoreStories posts={posts} />}
         </Container>
       </Layout>
