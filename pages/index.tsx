@@ -19,9 +19,18 @@ export default function Index({ posts }: Props) {
       <Layout>
         <Head>
           <title>Ahmed Zrouqui | Dev Blog</title>
-          <meta name="keywords" content="HTML, CSS, JavaScript, React, Web Developer, Blog, Ahmed Zrouqui, Dev Blog, Front-end, Back-end" />
-          <meta name="description" content="Ahmed Zrouqui Dev blog, I will be sharing my daily coding challenges and knowledge in this blog." />
-          <meta property="og:description" content="Ahmed Zrouqui Dev blog, I will be sharing my daily coding challenges and knowledge in this blog." />
+          <meta
+            name="keywords"
+            content="HTML, CSS, JavaScript, React, Web Developer, Blog, Ahmed Zrouqui, Dev Blog, Front-end, Back-end"
+          />
+          <meta
+            name="description"
+            content="Ahmed Zrouqui Dev blog, I will be sharing my daily coding challenges and knowledge in this blog."
+          />
+          <meta
+            property="og:description"
+            content="Ahmed Zrouqui Dev blog, I will be sharing my daily coding challenges and knowledge in this blog."
+          />
           <meta name="author" content="Ahmed Zrouqui" />
         </Head>
         <Container>
@@ -36,21 +45,6 @@ export default function Index({ posts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )*/}
-          <ins className="adsbygoogle"
-            style={{ display: "block" }}
-            data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
-            data-ad-slot="7003765774"
-            data-ad-format="auto"
-            data-full-width-responsive="true" />
-          <Script>
-            {
-              `
-              (adsbygoogle = window.adsbygoogle || []).push({
-                  google_ad_client: '${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}',
-                });
-              `
-            }
-          </Script>
           {posts.length > 0 && <MoreStories posts={posts} />}
         </Container>
       </Layout>
