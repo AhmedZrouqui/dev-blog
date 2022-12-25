@@ -41,7 +41,7 @@ const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate}: Props) => {
             title={post.fields.title}
             coverImage={
               post.fields.coverImage
-                ? "https://" + post.fields.coverImage?.fields.file.url
+                ? "https:" + post.fields.coverImage?.fields.file.url
                 : "/assets/images/blog_cover_placeholder.png"
             }
             date={post.sys.createdAt}
