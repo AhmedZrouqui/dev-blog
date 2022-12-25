@@ -46,7 +46,7 @@ export default function Index({ posts }: Props) {
             {
               `
               (adsbygoogle = window.adsbygoogle || []).push({
-                  google_ad_client: ${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE},
+                  google_ad_client: '${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}',
                   enable_page_level_ads: true
                 });
               `
