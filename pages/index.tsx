@@ -41,13 +41,12 @@ export default function Index({ posts }: Props) {
             data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
             data-ad-slot="7003765774"
             data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+            data-full-width-responsive="true" />
           <Script>
             {
               `
               (adsbygoogle = window.adsbygoogle || []).push({
                   google_ad_client: '${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}',
-                  enable_page_level_ads: true
                 });
               `
             }
