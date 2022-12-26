@@ -49,7 +49,15 @@ export default function Post({ post, morePosts, preview }: Props) {
                 <meta
                   name="author"
                   content={post.fields.author.fields?.fullName}
-                />
+                  />
+                {
+                    post.fields.seoTags &&
+                    <meta
+                    name="keywords"
+                    content={post.fields.seoTags.join(',')}
+                    />
+
+                }
               </Head>
               <PostHeader
                 title={post.fields?.title}
