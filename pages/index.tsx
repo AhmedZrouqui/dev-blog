@@ -50,11 +50,15 @@ export default function Index({ posts }: Props) {
           />
           <meta
             name="description"
-            content="Welcome to our dev blog, where you can find expert programming tips, code tutorials, and resources for all levels of software development. Whether you're a beginner looking to learn about new IT topics or an experienced developer looking for the latest tech news and insights, we've got you covered. Our team of experienced developers is dedicated to sharing their knowledge and helping you improve your skills. Stay up to date with the latest in tech and join our community of developers today!"
+            content="Welcome to our dev blog, where you can find expert programming tips, code tutorials, and resources for all levels of software development. Whether you're a beginner looking to learn about new IT topics or an experienced developer looking for the latest tech news and insights."
           />
           <meta
             property="og:description"
-            content="Welcome to our dev blog, where you can find expert programming tips, code tutorials, and resources for all levels of software development. Whether you're a beginner looking to learn about new IT topics or an experienced developer looking for the latest tech news and insights, we've got you covered. Our team of experienced developers is dedicated to sharing their knowledge and helping you improve your skills. Stay up to date with the latest in tech and join our community of developers today!"
+            content="Welcome to our dev blog, where you can find expert programming tips, code tutorials, and resources for all levels of software development. Whether you're a beginner looking to learn about new IT topics or an experienced developer looking for the latest tech news and insights."
+          />
+          <meta
+            property="og:image"
+            content=""
           />
           <meta name="author" content="Ahmed Zrouqui" />
         </Head>
