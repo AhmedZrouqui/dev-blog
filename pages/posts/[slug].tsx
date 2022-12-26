@@ -34,14 +34,13 @@ export default function Post({ post, morePosts, preview }: Props) {
           <>
             <article className="mb-32">
               <Head>
-                <title>{post.fields.title} | AZ Dev Blog</title>
-                {post.fields.ogImage && (
-                  <meta
+                <title>{post.fields.title}</title>
+                <meta
                     property="og:image"
                     content={post.fields.ogImage?.fields.file.url}
                   />
-                )}
-                <meta name="description" content={post.fields?.seoDescription || post.fields?.excerpt} />
+                  <meta name="og:title" content={post.fields.title} />
+                  <meta name="description" content={post.fields?.seoDescription || post.fields?.excerpt} />
                 <meta
                   property="og:description"
                   content={post.fields?.seoDescription || post.fields?.excerpt}
