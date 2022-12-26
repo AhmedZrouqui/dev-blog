@@ -8,13 +8,37 @@ import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import Post from "../interfaces/post";
 import Script from "next/script";
+import Header from "../components/header";
+import { useCallback, useEffect, useState } from "react";
 
 type Props = {
   posts: Post[];
 };
 
 export default function Index({ posts }: Props) {
-  console.log(posts);
+
+  const [blogs, setBlogs] = useState(posts ?? []);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchQueryUpdate = useCallback(
+    (value: string) => {
+      setSearchQuery(value);
+    },
+    [searchQuery]
+  );
+
+  useEffect(() => {
+    if (searchQuery.length > 0) {
+      setBlogs((prev) => {
+        return posts.filter((post: Post) =>
+          post.fields.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      });
+    } else {
+      setBlogs(posts);
+    }
+  }, [searchQuery]);
+
   return (
     <>
       <Layout>
@@ -35,7 +59,7 @@ export default function Index({ posts }: Props) {
           <meta name="author" content="Ahmed Zrouqui" />
         </Head>
         <Container>
-          <Intro />
+          <Header />
           {/*heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -46,7 +70,7 @@ export default function Index({ posts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )*/}
-          {posts.length > 0 && <MoreStories posts={posts} />}
+          {posts.length > 0 && <MoreStories posts={blogs} searchQueryUpdate={handleSearchQueryUpdate} />}
         </Container>
       </Layout>
     </>

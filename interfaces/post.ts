@@ -21,6 +21,9 @@ type PostType = {
       };
     };
     content: string;
+    tags: string[];
+    seoTags: string[];
+    minutes: string;
   };
   sys: {
     createdAt: string;

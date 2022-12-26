@@ -4,7 +4,9 @@ type Author = {
     slug: string;
     image: {
       fields: {
-        url: string;
+        file: {
+          url: string;
+        },
         title: string;
         description: string;
       };

@@ -17,25 +17,20 @@ const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate }: Props) => {
 
   return (
     <section>
-      <div className="flex justify-between items-center">
-        <h1 className="mb-8 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-          {isBlogsPage ? "Blogs" : "Latest Posts"}
+      <div className="flex justify-between items-center border-b-[1px]">
+        <h1 className="mb-8 text-3xl md:text-4xl font-medium tracking-tighter leading-tight">
+          Blogs
         </h1>
-        {isBlogsPage ? <></> : <Link href="/posts">View all posts</Link>}
-        {isBlogsPage ? (
-          <input
-            type={"text"}
-            placeholder="Search..."
-            onChange={handleSearchChange}
-            className="outline-none border-b-[1px] border-[#1d1d1d]"
-          />
-        ) : (
-          <></>
-        )}
+        <input
+          type={"text"}
+          placeholder="Search blogs..."
+          onChange={handleSearchChange}
+          className="outline-none p-2 rounded-md bg-gray-100 "
+        />
         <></>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+      <div className="">
         {posts.map((post) => (
           <PostPreview
             key={post?.fields?.slug}
@@ -49,6 +44,8 @@ const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate }: Props) => {
             author={post.fields.author}
             slug={post.fields.slug}
             excerpt={post.fields.excerpt}
+            tags={post.fields.tags}
+            minutes={post.fields.minutes || "3"}
           />
         ))}
       </div>
