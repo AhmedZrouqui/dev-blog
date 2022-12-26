@@ -38,13 +38,13 @@ export default function Post({ post, morePosts, preview }: Props) {
                 {post.fields.ogImage && (
                   <meta
                     property="og:image"
-                    content={post.fields.ogImage?.fields.url}
+                    content={post.fields.ogImage?.fields.file.url}
                   />
                 )}
-                <meta name="description" content={post.fields?.excerpt} />
+                <meta name="description" content={post.fields?.seoDescription || post.fields?.excerpt} />
                 <meta
                   property="og:description"
-                  content={post.fields?.excerpt}
+                  content={post.fields?.seoDescription || post.fields?.excerpt}
                 />
                 <meta
                   name="author"

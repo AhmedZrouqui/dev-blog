@@ -16,7 +16,9 @@ type PostType = {
     excerpt: string;
     ogImage: {
       fields: {
-        url: string;
+        file: {
+          url: string;
+        };
         description: string;
       };
     };
@@ -24,6 +26,7 @@ type PostType = {
     tags: string[];
     seoTags: string[];
     minutes: string;
+    seoDescription: string;
   };
   sys: {
     createdAt: string;
