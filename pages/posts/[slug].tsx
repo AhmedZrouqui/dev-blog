@@ -34,7 +34,7 @@ export default function Post({ post, morePosts, preview }: Props) {
           <>
             <article className="mb-32">
               <Head>
-                <title>{post.fields.title} | Ahmed Zrouqui Dev Blog</title>
+                <title>{post.fields.title} | AZ Dev Blog</title>
                 {post.fields.ogImage && (
                   <meta
                     property="og:image"
