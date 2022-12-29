@@ -31,11 +31,7 @@ function SiteMap() {
 export async function getServerSideProps({ res }: any) {
     const posts = await _getAllPosts();
     const paths = posts.map((post) => {
-        return {
-            params: {
-            slug: (post as PostType).fields.slug,
-            },
-        };
+        return (post as PostType).fields.slug;
     })
     const sitemap = generateSiteMap(paths);
     res.setHeader('Content-Type', 'text/xml');
