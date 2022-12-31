@@ -37,7 +37,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 <title>{post.fields.title}</title>
                 <meta
                     property="og:image"
-                    content={post.fields.ogImage?.fields.file.url}
+                    content={"https://"+post.fields.ogImage?.fields.file.url}
                   />
                   <meta name="og:title" content={post.fields.title} />
                   <meta name="description" content={post.fields?.seoDescription || post.fields?.excerpt} />
