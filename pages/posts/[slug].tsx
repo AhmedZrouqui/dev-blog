@@ -7,7 +7,7 @@ import PostHeader from "../../components/post-header";
 import Layout from "../../components/layout";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
-import { Adsense } from "react-adsense";
+import AdSense from "react-adsense";
 import type PostType from "../../interfaces/post";
 import { getBySlug, _getAllPosts } from "../../lib/getPosts";
 import Script from "next/script";
@@ -68,7 +68,7 @@ export default function Post({ post, preview }: Props) {
                 date={post.sys.createdAt}
                 author={post.fields?.author}
               />
-              <Adsense
+              <AdSense
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="4018757202"
                 style={{ display: "block", textAlign: "center" }}
@@ -85,7 +85,7 @@ export default function Post({ post, preview }: Props) {
 
               <PostBody content={post?.fields?.content} />
 
-              <Adsense
+              <AdSense
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="9036872489"
                 style={{ display: "block", textAlign: "center" }}
