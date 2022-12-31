@@ -68,7 +68,7 @@ export default function Post({ post, preview }: Props) {
                 date={post.sys.createdAt}
                 author={post.fields?.author}
               />
-              <AdSense
+              <AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="4018757202"
                 style={{ display: "block", textAlign: "center" }}
@@ -85,7 +85,7 @@ export default function Post({ post, preview }: Props) {
 
               <PostBody content={post?.fields?.content} />
 
-              <AdSense
+              <AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="9036872489"
                 style={{ display: "block", textAlign: "center" }}
