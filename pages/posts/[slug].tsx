@@ -73,7 +73,7 @@ export default function Post({ post, preview }: Props) {
                 slot="4018757202"
                 style={{ display: "block", textAlign: "center" }}
                 layout="in-article"
-                page_url={typeof window !== "undefined" && window.location.href}
+                page_url={`https://az.devblog.com/blog/${post.fields.slug}`}
                 format="fluid"
               />
 
@@ -90,7 +90,7 @@ export default function Post({ post, preview }: Props) {
                 slot="9036872489"
                 style={{ display: "block", textAlign: "center" }}
                 layout="in-article"
-                page_url={typeof window !== "undefined" && window.location.href}
+                page_url={`https://az.devblog.com/blog/${post.fields.slug}`}
                 format="fluid"
               />
 
