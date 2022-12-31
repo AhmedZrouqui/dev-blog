@@ -7,8 +7,7 @@ import PostHeader from "../../components/post-header";
 import Layout from "../../components/layout";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
-import { CMS_NAME } from "../../lib/constants";
-import markdownToHtml from "../../lib/markdownToHtml";
+import { Adsense } from "react-adsense";
 import type PostType from "../../interfaces/post";
 import { getBySlug, _getAllPosts } from "../../lib/getPosts";
 import Script from "next/script";
@@ -19,7 +18,7 @@ type Props = {
   preview?: boolean;
 };
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, preview }: Props) {
   const router = useRouter();
   if (!router.isFallback && !post?.fields.slug) {
     return <ErrorPage statusCode={404} />;
@@ -36,11 +35,14 @@ export default function Post({ post, morePosts, preview }: Props) {
               <Head>
                 <title>{post.fields.title}</title>
                 <meta
-                    property="og:image"
-                    content={"https://"+post.fields.ogImage?.fields.file.url}
-                  />
-                  <meta name="og:title" content={post.fields.title} />
-                  <meta name="description" content={post.fields?.seoDescription || post.fields?.excerpt} />
+                  property="og:image"
+                  content={"https://" + post.fields.ogImage?.fields.file.url}
+                />
+                <meta name="og:title" content={post.fields.title} />
+                <meta
+                  name="description"
+                  content={post.fields?.seoDescription || post.fields?.excerpt}
+                />
                 <meta
                   property="og:description"
                   content={post.fields?.seoDescription || post.fields?.excerpt}
@@ -48,15 +50,13 @@ export default function Post({ post, morePosts, preview }: Props) {
                 <meta
                   name="author"
                   content={post.fields.author.fields?.fullName}
-                  />
-                {
-                    post.fields.seoTags &&
-                    <meta
+                />
+                {post.fields.seoTags && (
+                  <meta
                     name="keywords"
-                    content={post.fields.seoTags.join(',')}
-                    />
-
-                }
+                    content={post.fields.seoTags.join(",")}
+                  />
+                )}
               </Head>
               <PostHeader
                 title={post.fields?.title}
@@ -68,14 +68,15 @@ export default function Post({ post, morePosts, preview }: Props) {
                 date={post.sys.createdAt}
                 author={post.fields?.author}
               />
-              <ins
-                className="adsbygoogle"
+              <Adsense
+                client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
+                slot="4018757202"
                 style={{ display: "block", textAlign: "center" }}
-                data-ad-layout="in-article"
-                data-ad-format="fluid"
-                data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
-                data-ad-slot="4018757202"
-              ></ins>
+                layout="in-article"
+                page_url={window.location.href}
+                format="fluid"
+              />
+
               <Script>
                 {`
                     (adsbygoogle = window.adsbygoogle || []).push({});
@@ -83,6 +84,21 @@ export default function Post({ post, morePosts, preview }: Props) {
               </Script>
 
               <PostBody content={post?.fields?.content} />
+
+              <Adsense
+                client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
+                slot="9036872489"
+                style={{ display: "block", textAlign: "center" }}
+                layout="in-article"
+                page_url={window.location.href}
+                format="fluid"
+              />
+
+              <Script>
+                {`
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    `}
+              </Script>
             </article>
           </>
         )}
