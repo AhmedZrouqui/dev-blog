@@ -73,7 +73,7 @@ export default function Post({ post, preview }: Props) {
                 slot="4018757202"
                 style={{ display: "block", textAlign: "center" }}
                 layout="in-article"
-                page_url={window.location.href}
+                page_url={typeof window !== "undefined" && window.location.href}
                 format="fluid"
               />
 
@@ -90,7 +90,7 @@ export default function Post({ post, preview }: Props) {
                 slot="9036872489"
                 style={{ display: "block", textAlign: "center" }}
                 layout="in-article"
-                page_url={window.location.href}
+                page_url={typeof window !== "undefined" && window.location.href}
                 format="fluid"
               />
 
