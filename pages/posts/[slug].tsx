@@ -71,7 +71,7 @@ export default function Post({ post, preview }: Props) {
               <AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="4018757202"
-                style={{ display: "block", textAlign: "center" }}
+                style={{ display: "block", textAlign: "center", height: 250 }}
                 layout="in-article"
                 page_url={`https://az.devblog.com/blog/${post.fields.slug}`}
                 format="fluid"
@@ -88,7 +88,7 @@ export default function Post({ post, preview }: Props) {
               <AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="9036872489"
-                style={{ display: "block", textAlign: "center" }}
+                style={{ display: "block", textAlign: "center", height: 250 }}
                 layout="in-article"
                 page_url={`https://az.devblog.com/blog/${post.fields.slug}`}
                 format="fluid"
