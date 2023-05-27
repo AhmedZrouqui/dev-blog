@@ -1,8 +1,8 @@
-import PostPreview from "./post-preview";
-import type Post from "../interfaces/post";
-import Link from "next/link";
-import { debounce } from "lodash";
-import { SyntheticEvent } from "react";
+import PostPreview from './post-preview';
+import type Post from '../interfaces/post';
+import Link from 'next/link';
+import { debounce } from 'lodash';
+import { SyntheticEvent } from 'react';
 
 type Props = {
   posts: Post[];
@@ -17,15 +17,15 @@ const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate }: Props) => {
 
   return (
     <section>
-      <div className="flex justify-between items-center border-b-[1px]">
-        <h1 className="mb-8 text-3xl md:text-4xl font-medium tracking-tighter leading-tight">
+      <div className="flex justify-between items-center">
+        <h1 className="mb-8 text-3xl md:text-4xl font-medium tracking-tighter leading-tight text-white">
           Blogs
         </h1>
         <input
-          type={"text"}
+          type={'text'}
           placeholder="Search blogs..."
           onChange={handleSearchChange}
-          className="outline-none p-2 rounded-md bg-gray-100 "
+          className="outline-none p-2 rounded-md bg-accent-7 text-gray-400"
         />
         <></>
       </div>
@@ -37,15 +37,15 @@ const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate }: Props) => {
             title={post?.fields?.title}
             coverImage={
               post.fields?.coverImage
-                ? "https:" + post.fields.coverImage?.fields.file.url
-                : "/assets/images/blog_cover_placeholder.png"
+                ? 'https:' + post.fields.coverImage?.fields.file.url
+                : '/assets/images/blog_cover_placeholder.png'
             }
             date={post.sys.createdAt}
             author={post.fields.author}
             slug={post.fields.slug}
             excerpt={post.fields.excerpt}
             tags={post.fields.tags}
-            minutes={post.fields.minutes || "3"}
+            minutes={post.fields.minutes || '3'}
           />
         ))}
       </div>

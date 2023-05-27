@@ -1,16 +1,16 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import Container from "../../components/container";
-import PostBody from "../../components/post-body";
-import Header from "../../components/header";
-import PostHeader from "../../components/post-header";
-import Layout from "../../components/layout";
-import PostTitle from "../../components/post-title";
-import Head from "next/head";
-import AdSense from "react-adsense";
-import type PostType from "../../interfaces/post";
-import { getBySlug, _getAllPosts } from "../../lib/getPosts";
-import Script from "next/script";
+import { useRouter } from 'next/router';
+import ErrorPage from 'next/error';
+import Container from '../../components/container';
+import PostBody from '../../components/post-body';
+import Header from '../../components/header';
+import PostHeader from '../../components/post-header';
+import Layout from '../../components/layout';
+import PostTitle from '../../components/post-title';
+import Head from 'next/head';
+import AdSense from 'react-adsense';
+import type PostType from '../../interfaces/post';
+import { getBySlug, _getAllPosts } from '../../lib/getPosts';
+import Script from 'next/script';
 
 type Props = {
   post: PostType;
@@ -31,12 +31,12 @@ export default function Post({ post, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <article>
               <Head>
                 <title>{post.fields.title}</title>
                 <meta
                   property="og:image"
-                  content={"https://" + post.fields.ogImage?.fields.file.url}
+                  content={'https://' + post.fields.ogImage?.fields.file.url}
                 />
                 <meta name="og:title" content={post.fields.title} />
                 <meta
@@ -54,7 +54,7 @@ export default function Post({ post, preview }: Props) {
                 {post.fields.seoTags && (
                   <meta
                     name="keywords"
-                    content={post.fields.seoTags.join(",")}
+                    content={post.fields.seoTags.join(',')}
                   />
                 )}
               </Head>
@@ -62,8 +62,8 @@ export default function Post({ post, preview }: Props) {
                 title={post.fields?.title}
                 coverImage={
                   post.fields.coverImage
-                    ? "https://" + post.fields.coverImage?.fields.file.url
-                    : "/assets/images/blog_cover_placeholder.png"
+                    ? 'https://' + post.fields.coverImage?.fields.file.url
+                    : '/assets/images/blog_cover_placeholder.png'
                 }
                 date={post.sys.createdAt}
                 author={post.fields?.author}
@@ -71,7 +71,7 @@ export default function Post({ post, preview }: Props) {
               <AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="4018757202"
-                style={{ display: "block", textAlign: "center", height: 250 }}
+                style={{ display: 'block', textAlign: 'center', height: 250 }}
                 layout="in-article"
                 page_url={`https://az.devblog.com/blog/${post.fields.slug}`}
                 format="fluid"
@@ -88,7 +88,7 @@ export default function Post({ post, preview }: Props) {
               <AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="9036872489"
-                style={{ display: "block", textAlign: "center", height: 250 }}
+                style={{ display: 'block', textAlign: 'center', height: 250 }}
                 layout="in-article"
                 page_url={`https://az.devblog.com/blog/${post.fields.slug}`}
                 format="fluid"
@@ -135,6 +135,6 @@ export async function getStaticPaths() {
         },
       };
     }),
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }

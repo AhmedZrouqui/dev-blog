@@ -1,9 +1,9 @@
-import Avatar from "./avatar";
-import DateFormatter from "./date-formatter";
-import CoverImage from "./cover-image";
-import PostTitle from "./post-title";
-import type Author from "../interfaces/author";
-import PostAvatar from "./postAvatar";
+import Avatar from './avatar';
+import DateFormatter from './date-formatter';
+import CoverImage from './cover-image';
+import PostTitle from './post-title';
+import type Author from '../interfaces/author';
+import PostAvatar from './postAvatar';
 
 type Props = {
   title: string;
@@ -19,10 +19,11 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
       <div className="hidden md:block md:mb-12">
         <div>
           <PostAvatar
-            name={author ? author?.fields.fullName : "Anonymous"}
+            name={author ? author?.fields.fullName : 'Anonymous'}
             picture={
-              author?.fields?.image ? "https:"+ author.fields.image.fields.file.url :
-                "assets/images/default_profile_picture.png"
+              author?.fields?.image
+                ? 'https:' + author.fields.image.fields.file.url
+                : 'assets/images/default_profile_picture.png'
             }
           />
         </div>
@@ -33,10 +34,11 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">
           <PostAvatar
-            name={author ? author?.fields.fullName : "Anonymous"}
+            name={author ? author?.fields.fullName : 'Anonymous'}
             picture={
-              author?.fields?.image ? "https:"+ author.fields.image.fields.file.url :
-                "assets/images/default_profile_picture.png"
+              author?.fields?.image
+                ? 'https:' + author.fields.image.fields.file.url
+                : 'assets/images/default_profile_picture.png'
             }
           />
         </div>

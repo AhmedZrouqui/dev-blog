@@ -1,39 +1,44 @@
-import { Block, BLOCKS, Inline, MARKS } from "@contentful/rich-text-types";
-import markdownStyles from "./markdown-styles.module.css";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Image, { ImageLoader, ImageLoaderProps } from "next/image"
+import { Block, BLOCKS, Inline, MARKS } from '@contentful/rich-text-types';
+import markdownStyles from './markdown-styles.module.css';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Image, { ImageLoader, ImageLoaderProps } from 'next/image';
 
 type Props = {
   content: any;
 };
 
-const contentfulImageLoader: ImageLoader = ({ src, width }: ImageLoaderProps) => {
-  return `${src}?w=${width}`
-}
+const contentfulImageLoader: ImageLoader = ({
+  src,
+  width,
+}: ImageLoaderProps) => {
+  return `${src}?w=${width}`;
+};
 
 const PostBody = ({ content }: Props) => {
   const options = {
     renderNode: {
       [BLOCKS.HEADING_1]: (node: Block | Inline, children: any) => (
-        <h1 className="my-4 font-bold text-5xl text-[#1D1D1D]">{children}</h1>
+        <h1 className="my-4 font-bold text-5xl text-[#d1d1d1]">{children}</h1>
       ),
       [BLOCKS.HEADING_2]: (node: Block | Inline, children: any) => (
-        <h2 className="my-4 font-bold text-3xl text-[#1D1D1D]">{children}</h2>
+        <h2 className="my-4 font-bold text-3xl text-[#d1d1d1]">{children}</h2>
       ),
       [BLOCKS.HEADING_3]: (node: Block | Inline, children: any) => (
-        <h3 className="my-4 font-bold text-2xl text-[#1D1D1D]">{children}</h3>
+        <h3 className="my-4 font-bold text-2xl text-[#d1d1d1]">{children}</h3>
       ),
       [BLOCKS.HEADING_4]: (node: Block | Inline, children: any) => (
-        <h4 className="my-4 font-bold text-xl text-[#1D1D1D]">{children}</h4>
+        <h4 className="my-4 font-bold text-xl text-[#d1d1d1]">{children}</h4>
       ),
       [BLOCKS.HEADING_5]: (node: Block | Inline, children: any) => (
-        <h5 className="my-4 font-normal text-xl text-[#1D1D1D]">{children}</h5>
+        <h5 className="my-4 font-normal text-xl text-[#d1d1d1]">{children}</h5>
       ),
       [BLOCKS.HEADING_5]: (node: Block | Inline, children: any) => (
-        <h6 className="my-4 font-normal text-xl text-[#1D1D1D]">{children}</h6>
+        <h6 className="my-4 font-normal text-xl text-[#d1d1d1]">{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node: Block | Inline, children: any) => (
-        <p className="mb-3 text-lg leading-relaxed font-normal text-[#1D1D1D]">{children}</p>
+        <p className="mb-3 text-lg leading-relaxed font-normal text-[#d1d1d1]">
+          {children}
+        </p>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
         return (
@@ -44,14 +49,14 @@ const PostBody = ({ content }: Props) => {
             width={node.data.target.fields.file.details.image.width}
             alt={node.data.target.fields.description}
           />
-        )
+        );
       },
     },
     renderMark: {
       [MARKS.BOLD]: (text: any) => <b>{text}</b>,
     },
 
-    renderText: (text: any) => text.replace("!", "?"),
+    renderText: (text: any) => text.replace('!', '?'),
   };
   return (
     <div className="max-w-2xl mx-auto">
