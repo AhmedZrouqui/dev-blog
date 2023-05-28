@@ -11,7 +11,7 @@ const Avatar = ({ name, picture }: Props) => {
         className="w-4 h-4 lg:w-6 lg:h-6 rounded-full object-cover mr-2"
         alt={name}
       />
-      <div className="text-sm lg:text-md text-accent-7 font-normal">{name}</div>
+      <div className="text-xs md:text-sm text-accent-7 font-normal">{name}</div>
     </div>
   );
 };

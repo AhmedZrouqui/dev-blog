@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'poppins': "'Poppins', sans-serif",
-        'montserrat': "'Montserrat', sans-serif"
+        'kanit': "'Kanit', sans-serif",
+        'merriweather': "'Merriweather', sans-serif",
       },
       colors: {
         'accent-1': '#FAFAFA',
@@ -14,6 +14,8 @@ module.exports = {
         'accent-8': '#1d1d1d',
         'paper': "#FFFFFF",
         success: '#0070f3',
+        info: '#2980b9',
+        warning: '#f39c12',
         cyan: '#79FFE1',
       },
       spacing: {

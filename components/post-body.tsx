@@ -1,7 +1,14 @@
-import { Block, BLOCKS, Inline, MARKS } from '@contentful/rich-text-types';
+import {
+  Block,
+  BLOCKS,
+  Inline,
+  INLINES,
+  MARKS,
+} from '@contentful/rich-text-types';
 import markdownStyles from './markdown-styles.module.css';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image, { ImageLoader, ImageLoaderProps } from 'next/image';
+import Link from 'next/link';
 
 type Props = {
   content: any;
@@ -18,10 +25,14 @@ const PostBody = ({ content }: Props) => {
   const options = {
     renderNode: {
       [BLOCKS.HEADING_1]: (node: Block | Inline, children: any) => (
-        <h1 className="my-4 font-bold text-5xl text-accent-7">{children}</h1>
+        <h1 className="mt-12 mb-6 font-bold text-5xl text-accent-7">
+          {children}
+        </h1>
       ),
       [BLOCKS.HEADING_2]: (node: Block | Inline, children: any) => (
-        <h2 className="my-4 font-bold text-3xl text-accent-7">{children}</h2>
+        <h2 className="mt-12 mb-6 font-bold text-3xl text-accent-7">
+          {children}
+        </h2>
       ),
       [BLOCKS.HEADING_3]: (node: Block | Inline, children: any) => (
         <h3 className="my-4 font-bold text-2xl text-accent-7">{children}</h3>
@@ -36,9 +47,14 @@ const PostBody = ({ content }: Props) => {
         <h6 className="my-4 font-normal text-xl text-accent-7">{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (node: Block | Inline, children: any) => (
-        <p className="my-3 text-base leading-relaxed font-normal text-accent-7">
+        <p className="my-3 text-base leading-loose font-normal text-accent-7">
           {children}
         </p>
+      ),
+      [BLOCKS.QUOTE]: (node: Block | Inline, children: any) => (
+        <blockquote className="border-info bg-info bg-opacity-10 rounded py-1 border-l-4 px-4 italic">
+          {children}
+        </blockquote>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
         return (
@@ -51,6 +67,22 @@ const PostBody = ({ content }: Props) => {
           />
         );
       },
+      [INLINES.HYPERLINK]: ({ data }, children: any) => (
+        <Link
+          href={data.uri}
+          className="text-info"
+          target={`${
+            data.uri.startsWith('https://az-devblog.com') ? '_self' : '_blank'
+          }`}
+          rel={`${
+            data.uri.startsWith('https://az-devblog.com')
+              ? ''
+              : 'noopener noreferrer'
+          }`}
+        >
+          {children}
+        </Link>
+      ),
     },
     renderMark: {
       [MARKS.BOLD]: (text: any) => <b>{text}</b>,

@@ -18,7 +18,7 @@ const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate }: Props) => {
   return (
     <section>
       <div className="flex justify-between items-center border-b-2 border-accent-1 py-2">
-        <h1 className="text-2xl font-medium tracking-tighter leading-tight text-accent-7">
+        <h1 className="sm:text-xl md:text-2xl font-medium tracking-tighter leading-tight text-accent-7">
           Latest posts
         </h1>
         <input

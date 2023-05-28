@@ -3,6 +3,7 @@ import DateFormatter from './date-formatter';
 import CoverImage from './cover-image';
 import Link from 'next/link';
 import type Author from '../interfaces/author';
+import PreviewImage from './preview-image';
 
 type Props = {
   title: string;
@@ -39,12 +40,12 @@ const PostPreview = ({
               }
             />
           </div>
-          <div className="text-sm lg:text-md ml-1">
+          <div className="text-xs md:text-sm ml-1">
             <DateFormatter dateString={date} />.
           </div>
           <div className="flex items-center mx-2">
-            <p className="text-accent-7 text-sm text-opacity-60">
-              {minutes} minutes read.
+            <p className="text-accent-7 text-xs sm:text-sm text-opacity-60">
+              {minutes} min read.
             </p>
           </div>
         </div>
@@ -53,7 +54,7 @@ const PostPreview = ({
             <Link
               as={`/posts/${slug}`}
               href="/posts/[slug]"
-              className="hover:underline"
+              className="hover:underline heading"
             >
               {title}
             </Link>
@@ -80,8 +81,8 @@ const PostPreview = ({
           </div>
         </div>
       </div>
-      <div className="">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+      <div className="h-full">
+        <PreviewImage slug={slug} title={title} src={coverImage} />
       </div>
     </div>
   );
