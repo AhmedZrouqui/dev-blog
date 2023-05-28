@@ -60,6 +60,7 @@ export default function Post({ post, preview }: Props) {
               </Head>
               <PostHeader
                 title={post.fields?.title}
+                excerpt={post.fields.excerpt}
                 coverImage={
                   post.fields.coverImage
                     ? 'https://' + post.fields.coverImage?.fields.file.url
@@ -68,7 +69,7 @@ export default function Post({ post, preview }: Props) {
                 date={post.sys.createdAt}
                 author={post.fields?.author}
               />
-              <AdSense.Google
+              {/*<AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="4018757202"
                 style={{ display: 'block', textAlign: 'center', height: 250 }}
@@ -81,11 +82,11 @@ export default function Post({ post, preview }: Props) {
                 {`
                     (adsbygoogle = window.adsbygoogle || []).push({});
                     `}
-              </Script>
+              </Script>*/}
 
               <PostBody content={post?.fields?.content} />
 
-              <AdSense.Google
+              {/*<AdSense.Google
                 client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
                 slot="9036872489"
                 style={{ display: 'block', textAlign: 'center', height: 250 }}
@@ -98,7 +99,7 @@ export default function Post({ post, preview }: Props) {
                 {`
                     (adsbygoogle = window.adsbygoogle || []).push({});
                     `}
-              </Script>
+            </Script>*/}
             </article>
           </>
         )}

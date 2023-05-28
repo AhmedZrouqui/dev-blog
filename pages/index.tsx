@@ -1,24 +1,21 @@
-import Container from "../components/container";
-import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
-import Intro from "../components/intro";
-import Layout from "../components/layout";
-import { _getAllPosts } from "../lib/getPosts";
-import Head from "next/head";
-import { CMS_NAME } from "../lib/constants";
-import Post from "../interfaces/post";
-import Script from "next/script";
-import Header from "../components/header";
-import { useCallback, useEffect, useState } from "react";
+import Container from '../components/container';
+import MoreStories from '../components/more-stories';
+import Layout from '../components/layout';
+import { _getAllPosts } from '../lib/getPosts';
+import Head from 'next/head';
+import { CMS_NAME } from '../lib/constants';
+import Post from '../interfaces/post';
+import Script from 'next/script';
+import Header from '../components/header';
+import { useCallback, useEffect, useState } from 'react';
 
 type Props = {
   posts: Post[];
 };
 
 export default function Index({ posts }: Props) {
-
   const [blogs, setBlogs] = useState(posts ?? []);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchQueryUpdate = useCallback(
     (value: string) => {
@@ -57,10 +54,7 @@ export default function Index({ posts }: Props) {
             property="og:description"
             content="Welcome to our dev blog, where you can find expert programming tips, code tutorials, and resources for all levels of software development. Whether you're a beginner looking to learn about new IT topics or an experienced developer looking for the latest tech news and insights."
           />
-          <meta
-            property="og:image"
-            content=""
-          />
+          <meta property="og:image" content="" />
           <meta name="author" content="Ahmed Zrouqui" />
         </Head>
         <Container>
@@ -75,7 +69,12 @@ export default function Index({ posts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )*/}
-          {posts.length > 0 && <MoreStories posts={blogs} searchQueryUpdate={handleSearchQueryUpdate} />}
+          {posts.length > 0 && (
+            <MoreStories
+              posts={blogs}
+              searchQueryUpdate={handleSearchQueryUpdate}
+            />
+          )}
         </Container>
       </Layout>
     </>

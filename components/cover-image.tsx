@@ -1,6 +1,6 @@
-import cn from "classnames";
-import Link from "next/link";
-import Image, { ImageLoaderProps, ImageLoader } from "next/image";
+import cn from 'classnames';
+import Link from 'next/link';
+import Image, { ImageLoaderProps, ImageLoader } from 'next/image';
 
 type Props = {
   title: string;
@@ -8,17 +8,21 @@ type Props = {
   slug?: string;
 };
 
-const contentfulImageLoader: ImageLoader = ({ src, width }: ImageLoaderProps) => {
-  return `${src}?w=${width}`
-}
+const contentfulImageLoader: ImageLoader = ({
+  src,
+  width,
+}: ImageLoaderProps) => {
+  return `${src}?w=${width}`;
+};
 
 const CoverImage = ({ title, src, slug }: Props) => {
   const image = (
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
-      className={cn("w-full object-cover", {
-        "hover:shadow-lg transition-shadow duration-200 max-h-[200px] md:max-w-[200px]": slug,
+      className={cn('w-[70%] mx-auto rounded-lg object-cover', {
+        'hover:shadow-lg transition-shadow duration-200 max-h-[200px] md:max-w-[200px]':
+          slug,
       })}
       width={1300}
       height={270}

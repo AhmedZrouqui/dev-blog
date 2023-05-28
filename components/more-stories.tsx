@@ -17,15 +17,15 @@ const MoreStories = ({ posts, isBlogsPage, searchQueryUpdate }: Props) => {
 
   return (
     <section>
-      <div className="flex justify-between items-center">
-        <h1 className="mb-8 text-3xl md:text-4xl font-medium tracking-tighter leading-tight text-white">
-          Blogs
+      <div className="flex justify-between items-center border-b-2 border-accent-1 py-2">
+        <h1 className="text-2xl font-medium tracking-tighter leading-tight text-accent-7">
+          Latest posts
         </h1>
         <input
           type={'text'}
           placeholder="Search blogs..."
           onChange={handleSearchChange}
-          className="outline-none p-2 rounded-md bg-accent-7 text-gray-400"
+          className="outline-none p-2 rounded-md bg-accent-2 text-sm text-accent-7"
         />
         <></>
       </div>

@@ -7,44 +7,30 @@ import PostAvatar from './postAvatar';
 
 type Props = {
   title: string;
+  excerpt: string;
   coverImage: string;
   date: string;
   author: Author;
 };
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({ title, excerpt, coverImage, date, author }: Props) => {
   return (
     <>
+      <div className="mb-1 text-accent-7 text-center text-sm">
+        Published <DateFormatter dateString={date} />
+      </div>
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        <div>
-          <PostAvatar
-            name={author ? author?.fields.fullName : 'Anonymous'}
-            picture={
-              author?.fields?.image
-                ? 'https:' + author.fields.image.fields.file.url
-                : 'assets/images/default_profile_picture.png'
-            }
-          />
-        </div>
+      <div className="mb-6 text-accent-7 text-opacity-60 text-center max-w-3xl mx-auto">
+        <p>{excerpt}</p>
+      </div>
+      <div className="mb-6 text-center text-accent-7 text-opacity-60 text-sm">
+        <p>
+          Written by{' '}
+          <span className=" underline">{author?.fields.fullName}</span>
+        </p>
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
         <CoverImage title={title} src={coverImage} />
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="block md:hidden mb-6">
-          <PostAvatar
-            name={author ? author?.fields.fullName : 'Anonymous'}
-            picture={
-              author?.fields?.image
-                ? 'https:' + author.fields.image.fields.file.url
-                : 'assets/images/default_profile_picture.png'
-            }
-          />
-        </div>
-        <div className="mb-6 text-lg">
-          <DateFormatter dateString={date} />
-        </div>
       </div>
     </>
   );

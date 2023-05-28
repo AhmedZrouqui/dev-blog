@@ -10,12 +10,12 @@ const Alert = ({ preview }: Props) => {
   return (
     <div
       className={cn('border-b', {
-        'bg-neutral-800 border-neutral-800 text-white': preview,
-        'bg-neutral-800 border-none': !preview,
+        'bg-accent-2 border-accent-2 text-white': preview,
+        'bg-accent-2 border-none': !preview,
       })}
     >
       <Container>
-        <div className="py-2 text-center text-sm text-[#d1d1d1]">
+        <div className="py-2 text-center text-sm text-accent-7">
           <>
             This dev blog is built and ran by{' '}
             <a
