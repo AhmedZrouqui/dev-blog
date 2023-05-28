@@ -36,9 +36,20 @@ export default function Post({ post, preview }: Props) {
                 <title>{post.fields.title}</title>
                 <meta
                   property="og:image"
-                  content={'https://' + post.fields.ogImage?.fields.file.url}
+                  content={'https://' + post.fields.coverImage?.fields.file.url}
+                />
+                <meta
+                  property="og:image:secure_url"
+                  content={'https://' + post.fields.coverImage?.fields.file.url}
+                />
+                <meta name="og:image:width" content="1920" />
+                <meta name="og:image:height" content="1080" />
+                <meta
+                  name="og:url"
+                  content={'https://az-devblog.com/posts/' + post.fields?.slug}
                 />
                 <meta name="og:title" content={post.fields.title} />
+                <meta name="og:type" content="article" />
                 <meta
                   name="description"
                   content={post.fields?.seoDescription || post.fields?.excerpt}
