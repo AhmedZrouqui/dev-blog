@@ -20,6 +20,7 @@
     "react": "^18.2.0",
     "react-adsense": "^0.1.0",
     "react-dom": "^18.2.0",
+    "react-share": "^4.4.1",
     "react-snap": "^1.23.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",

@@ -5,10 +5,18 @@ import {
   INLINES,
   MARKS,
 } from '@contentful/rich-text-types';
-import markdownStyles from './markdown-styles.module.css';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  LinkedinIcon,
+} from 'react-share';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image, { ImageLoader, ImageLoaderProps } from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 type Props = {
   content: any;
@@ -22,6 +30,8 @@ const contentfulImageLoader: ImageLoader = ({
 };
 
 const PostBody = ({ content }: Props) => {
+  const router = useRouter();
+
   const options = {
     renderNode: {
       [BLOCKS.HEADING_1]: (node: Block | Inline, children: any) => (
@@ -86,13 +96,39 @@ const PostBody = ({ content }: Props) => {
     },
     renderMark: {
       [MARKS.BOLD]: (text: any) => <b>{text}</b>,
+      [MARKS.CODE]: (text: any) => (
+        <pre className="block w-full text-white bg-accent-7 py-1 px-2 rounded">
+          <code className="whitespace-normal">{text}</code>
+        </pre>
+      ),
     },
 
     renderText: (text: any) => text.replace('!', '?'),
   };
   return (
-    <div className="max-w-2xl mx-auto">
-      {documentToReactComponents(content, options)}
+    <div className="max-w-5xl mx-auto relative grid grid-cols-12">
+      <div className="col-start-1 col-end-2 w-full sticky top-[50%] max-h-[200px] md:flex hidden justify-center">
+        <ul>
+          <li>
+            <FacebookShareButton url={'https://az-devblog.com' + router.asPath}>
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
+          </li>
+          <li>
+            <LinkedinShareButton url={'https://az-devblog.com' + router.asPath}>
+              <LinkedinIcon size={32} round />
+            </LinkedinShareButton>
+          </li>
+          <li>
+            <TwitterShareButton url={'https://az-devblog.com' + router.asPath}>
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+          </li>
+        </ul>
+      </div>
+      <div className="col-start-1 col-end-12 md:col-start-3 md:col-end-11">
+        {documentToReactComponents(content, options)}
+      </div>
     </div>
   );
 };
