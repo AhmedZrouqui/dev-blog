@@ -23,6 +23,8 @@ export default function Post({ post, preview }: Props) {
   if (!router.isFallback && !post?.fields.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  console.log('https:' + post.fields.coverImage?.fields.file.url);
   return (
     <Layout preview={preview}>
       <Container>
