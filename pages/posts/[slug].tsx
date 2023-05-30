@@ -49,11 +49,11 @@ export default function Post({ post, preview }: Props) {
                   content={'https://' + post.fields.coverImage?.fields.file.url}
                 />
                 <meta
-                  property="og:image"
+                  name="og:image"
                   content={'https://' + post.fields.coverImage?.fields.file.url}
                 />
                 <meta
-                  property="og:image:secure_url"
+                  name="og:image:secure_url"
                   content={'https://' + post.fields.coverImage?.fields.file.url}
                 />
                 <meta name="og:image:width" content="1200" />
