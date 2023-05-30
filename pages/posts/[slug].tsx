@@ -36,6 +36,15 @@ export default function Post({ post, preview }: Props) {
             <article>
               <Head>
                 <title>{post.fields.title}</title>
+                <meta name="twitter:title" content={post.fields.title} />
+                <meta
+                  name="twitter:description"
+                  content={post.fields?.seoDescription || post.fields?.excerpt}
+                />
+                <meta
+                  name="twitter:image"
+                  content={'https://' + post.fields.coverImage?.fields.file.url}
+                />
                 <meta
                   property="og:image"
                   content={'https://' + post.fields.coverImage?.fields.file.url}
@@ -44,8 +53,8 @@ export default function Post({ post, preview }: Props) {
                   property="og:image:secure_url"
                   content={'https://' + post.fields.coverImage?.fields.file.url}
                 />
-                <meta name="og:image:width" content="1920" />
-                <meta name="og:image:height" content="1080" />
+                <meta name="og:image:width" content="1200" />
+                <meta name="og:image:height" content="630" />
                 <meta
                   name="og:url"
                   content={'https://az-devblog.com/posts/' + post.fields?.slug}

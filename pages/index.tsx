@@ -40,7 +40,7 @@ export default function Index({ posts }: Props) {
     <>
       <Layout>
         <Head>
-          <title>AZ | Dev Blog</title>
+          <title>AZ | DevBlog</title>
           <meta property="og:site_name" content="Az Devblog" />
           <meta property="og:title" content="AZ | Dev Blog" />
           <meta
@@ -56,6 +56,11 @@ export default function Index({ posts }: Props) {
             content="Welcome to our dev blog, where you can find expert programming tips, code tutorials, and resources for all levels of software development. Whether you're a beginner looking to learn about new IT topics or an experienced developer looking for the latest tech news and insights."
           />
           <meta name="author" content="Ahmed Zrouqui" />
+          <meta name="twitter:title" content="AZ | DevBlog" />
+          <meta
+            name="twitter:description"
+            content="Welcome to our dev blog, where you can find expert programming tips, code tutorials, and resources for all levels of software development. Whether you're a beginner looking to learn about new IT topics or an experienced developer looking for the latest tech news and insights."
+          />
         </Head>
         <Container>
           <Header />
