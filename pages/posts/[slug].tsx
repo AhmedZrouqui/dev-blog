@@ -26,7 +26,10 @@ export default function Post({ post, preview }: Props) {
 
   console.log('https:' + post.fields.coverImage?.fields.file.url);
   return (
-    <Layout preview={preview}>
+    <Layout
+      preview={preview}
+      ogImage={'https://' + post.fields.coverImage?.fields.file.url}
+    >
       <Container>
         <Header />
         {router.isFallback ? (

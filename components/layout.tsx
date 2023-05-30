@@ -5,12 +5,13 @@ import Meta from './meta';
 type Props = {
   preview?: boolean;
   children: React.ReactNode;
+  ogImage?: string;
 };
 
-const Layout = ({ preview, children }: Props) => {
+const Layout = ({ preview, children, ogImage }: Props) => {
   return (
     <>
-      <Meta />
+      <Meta ogImage={ogImage} />
       <div className="min-h-screen bg-paper">
         <main>{children}</main>
       </div>
