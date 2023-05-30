@@ -31,11 +31,11 @@ const Meta = ({ ogImage }: { ogImage?: string }) => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="og:image" content={ogImage} />
-      <meta name="og:image:secure_url" content={ogImage} />
-      <meta name="og:image:width" content="1200" />
-      <meta name="og:image:height" content="630" />
+      <meta property="twitter:image" content={ogImage} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:secure_url" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
     </Head>
   );
 };
